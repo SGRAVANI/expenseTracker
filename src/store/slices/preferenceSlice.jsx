@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 let preferenceSlice=createSlice({
     name:"preferences",
-    initialState:{isDarkMode:true},
+    initialState:{isDarkMode:false},
     reducers:{
         toggleDarkMode:(state,action)=>
         {

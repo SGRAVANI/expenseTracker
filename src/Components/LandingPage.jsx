@@ -126,7 +126,7 @@ function handleUpdate()
         <div className="row mb-3 ">
     <label htmlFor="name" className="col-sm-2 col-form-label gap-2 ">Name</label>
     <div className="col-sm-10">
-      <input type="text" placeholder='enter your name' name="name"required value={inputData.name}  /*value={state.name}*/ onChange={handleChange} className={state.preferences.isDarkMode?"form-control font-dark bg-dark":"form-control"} id="name"/>
+      <input type="text" placeholder='enter your name' name="name"required value={inputData.name}  /*value={state.name}*/ onChange={handleChange} className={state.preferences.isDarkMode?"form-control font-dark bg-dark dark-input":"form-control"} id="name"/>
     </div>
   </div>
   <div className="row mb-3">
@@ -135,7 +135,7 @@ function handleUpdate()
       <input type="number" placeholder='enter your budget(Rs)' required name="budget" value={inputData.budget} 
                /* value={state.budget} */
                 onChange={handleChange}
-id="budget"   className={state.preferences.isDarkMode?"form-control font-dark bg-dark":"form-control"}/>
+id="budget"   className={state.preferences.isDarkMode?"form-control font-dark bg-dark dark-input":"form-control"}/>
     </div>
   </div>
   
@@ -150,7 +150,7 @@ id="budget"   className={state.preferences.isDarkMode?"form-control font-dark bg
       <input type="number" placeholder='enter food budget' required name="food" value={inputData.food} 
                /* value={state.budget} */
                 onChange={handleChange}
-                className={state.preferences.isDarkMode?"form-control font-dark bg-dark":"form-control"} id="food"/>
+                className={state.preferences.isDarkMode?"form-control font-dark bg-dark dark-input":"form-control"} id="food"/>
     </div>
   </div>
  
@@ -159,7 +159,7 @@ id="budget"   className={state.preferences.isDarkMode?"form-control font-dark bg
     <label htmlFor="travel" className="col-sm-2 col-form-label">Travel</label>
     <div className="col-sm-10">
       <input type="number" id="travel"placeholder='enter travel budget' required name="travel" value={inputData.travel} /*value={state.travel}*/  onChange={handleChange}
-className={state.preferences.isDarkMode?"form-control font-dark bg-dark":"form-control"}/>
+className={state.preferences.isDarkMode?"form-control font-dark bg-dark dark-input":"form-control"}/>
     </div>
   </div>
  
@@ -169,7 +169,7 @@ className={state.preferences.isDarkMode?"form-control font-dark bg-dark":"form-c
     <label htmlFor="util" className="col-sm-2 col-form-label">Utilities</label>
     <div className="col-sm-10">
       <input type="number" id="util" placeholder='enter utilities budget'required name="utilities" value={inputData.utilities} /*value={state.utilities}*/  onChange={handleChange} 
-className={state.preferences.isDarkMode?"form-control font-dark bg-dark":"form-control"} />
+className={state.preferences.isDarkMode?"form-control font-dark bg-dark dark-input":"form-control"} />
     </div>
   </div>
  
@@ -179,7 +179,7 @@ className={state.preferences.isDarkMode?"form-control font-dark bg-dark":"form-c
     <label htmlFor="other" className="col-sm-2 col-form-label">Other</label>
     <div className="col-sm-10">
       <input type="text" id="other" placeholder='enter miscelleneous budget' name="other" value={computeOther()} disabled
-className={state.preferences.isDarkMode?"form-control font-dark bg-dark":"form-control"}/>
+className={state.preferences.isDarkMode?"form-control font-dark bg-dark dark-input":"form-control"}/>
     </div>
   </div>
  

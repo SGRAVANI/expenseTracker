@@ -208,6 +208,12 @@ display: inline-block;
     background-color: #6c2c71 !important;
     /* filter: brightness(0.5); */
 }
+.dark-input{
+    color:rgb(183, 180, 180);
+  }
+  .dark-input::placeholder{
+    color:rgb(183, 180, 180) !important;
+  }
 .pill{
     width:90px;
     border-radius:15px;

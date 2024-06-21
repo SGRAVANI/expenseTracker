@@ -69,13 +69,13 @@ function NewExpense() {
     <div className="row mb-3 ">
     <label htmlFor="expName" className="col-sm-2 col-form-label gap-2 ">Expense Name</label>
     <div className="col-sm-10">
-      <input type="text" name="expenseName" id="expName" required placeholder='enter expense item name' onChange={handleChange}  className={state.preferences.isDarkMode?"form-control bg-dark font-dark":"form-control "}/>
+      <input type="text" name="expenseName" id="expName" required placeholder='enter expense item name' onChange={handleChange}  className={state.preferences.isDarkMode?"form-control bg-dark font-dark dark-input":"form-control "} />
     </div>
   </div>
   <div className="row mb-3 ">
     <label htmlFor="expCategory" className="col-sm-2 col-form-label gap-2 ">Expense Category</label>
-    <div className="col-sm-10">
-      <select name="expenseCategory" id="expCategory" required style={{width:"175px"}} onChange={handleChange} defaultValue={""}  className={state.preferences.isDarkMode?"form-control bg-dark font-dark w-100":"form-control w-100"}>
+    <div className="col-sm-10 ">
+      <select name="expenseCategory" id="expCategory" required style={{width:"175px"}} onChange={handleChange} defaultValue={""}  className={state.preferences.isDarkMode?"form-select bg-dark font-dark dark-input w-100":"form-select w-100"}>
       <option value="" disabled >Select Category</option>
             <option value="food" >Food</option>
             <option value="travel">Travel</option>
@@ -88,7 +88,7 @@ function NewExpense() {
   <div className="row mb-3 ">
     <label htmlFor="expAmount" className="col-sm-2 col-form-label gap-2 ">Expense Amount</label>
     <div className="col-sm-10">
-      <input type="number" name="expenseAmount" id="expAmount" required placeholder='enter expense amount' onChange={handleChange}  className={state.preferences.isDarkMode?"form-control bg-dark font-dark":"form-control "}/>
+      <input type="number" name="expenseAmount" id="expAmount" required placeholder='enter expense amount' onChange={handleChange}  className={state.preferences.isDarkMode?"form-control bg-dark font-dark dark-input":"form-control "}/>
     </div>
   </div>
 
