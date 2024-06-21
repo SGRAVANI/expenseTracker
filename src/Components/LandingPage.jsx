@@ -51,7 +51,12 @@ useEffect(() => {
       utilities: state.budget.utilities || ""
     });
   }, [state.budget]);
-function handleSubmit(e)
+//   useEffect(()=>{
+//     document.body.style.background=(state.preferences.isDarkMode)?"radial-gradient(circle,rgb(110, 70, 118),rgb(57, 19, 138),rgb(205, 83, 235))": "linear-gradient(to bottom,rgb(233,208,238),rgb(236,216,241),white)"
+//     },[state.preferences.isDarkMode])
+
+
+  function handleSubmit(e)
 {
        
     e.preventDefault()
@@ -104,18 +109,20 @@ function handleUpdate()
   }
 
   return (
-    <div className={state.preferences.isDarkMode?"body body-color-dark font-dark":"body body-color-light"}>
+    <div className={state.preferences.isDarkMode?"body body-color-dark  font-dark":"body body-color-light"}>
     <div className='container-fluid'>
         {/* <div className='inner'> */}
             <div style={{position:"absolute",right:"1rem",top:"1rem",fontSize:"1.5rem"}} onClick={()=>{
                 dispatch(toggleDarkMode())
             }}>{state.preferences.isDarkMode?<FaSun style={{color:"white"}}/>:<FaMoon style={{color:"navy"}}/>}</div>
-            <h1 className='display-sm-3 fw-bold py-4'>Your Personalized Expense Tracker</h1>
-        <div  className='row ' >
+            <h1 className='display-sm-3 fw-bold py-5 '>Your Personalized Expense Tracker</h1>
+        <div  className='row container-xl mx-auto' >
         <div className='col-sm-6 col-md-7 col-12 px-2 d-flex align-items-center justify-content-center' >{<img src={expenseImg} className='img-fluid object-fit-cover rounded' />}</div>
        
         
         <form  onSubmit={handleSubmit} className='col-md-5 col-sm-6 py-3 col-12'>
+         <fieldset>
+         
         <div className="row mb-3 ">
     <label htmlFor="name" className="col-sm-2 col-form-label gap-2 ">Name</label>
     <div className="col-sm-10">
@@ -192,14 +199,15 @@ className={state.preferences.isDarkMode?"form-control font-dark bg-dark":"form-c
          <div style={{position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-50%)"}}>
         {error.f?generateAlert(error.msg,error.f,error.variant):""}
         </div>
+       </fieldset>
         </form>
-        
+          
         </div>
         
        
      </div>
      </div>
-    //  </div>
+    
   )
 }
 

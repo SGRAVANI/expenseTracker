@@ -26,6 +26,7 @@ function Transactions() {
     navigate("/transactions")
   }
   useEffect(()=>{
+    document.body.backgroundColor=""
   document.body.style.backgroundColor=(state.preferences.isDarkMode)?"rgb(66,66,66)":"white"
   },[state.preferences])
   function getInsightRows()
