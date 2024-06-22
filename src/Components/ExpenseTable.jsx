@@ -79,55 +79,66 @@ function handleDelete(id)
     setDelete(true)
 }
   
-    return state.expenseDetail.length>0?(
-    <section className='my-2 w-100'>
-    <h4>Expense Details</h4>
-    <div className='table-responsive'>
-    <table  className={state.preferences.isDarkMode?"table table-striped table-hover table-dark align-middle":'table table-striped table-hover align-middle'}>
-  <thead>
-    <tr>
-    <th >#</th>
-    <th>Transaction</th>
-    <th>Category</th>
-    <th>Amount</th>
-    <th>Action</th>
+    return ( <section className='sections'>
+      {
+     state.expenseDetail.length>0?(
+     
+      <section className='my-2 w-100'>
+      <h4>Expense Details</h4>
+      <div className='table-responsive'>
+      <table  className={state.preferences.isDarkMode?"table table-striped table-hover table-dark align-middle":'table table-striped table-hover align-middle'}>
+    <thead>
+      <tr>
+      <th >#</th>
+      <th>Transaction</th>
+      <th>Category</th>
+      <th>Amount</th>
+      <th>Action</th>
+    
+      </tr>
+    </thead>
+    <tbody>
+     {getRows()}
+    </tbody>
+   </table>
+   </div>
+   {isDelete &&<div className='my-2'>
+      <SuccessMessage message="Expense Record Deleted sucessfully..." />
+   </div>}
   
-    </tr>
-  </thead>
-  <tbody>
-   {getRows()}
-  </tbody>
- </table>
- </div>
- {isDelete &&<div className='my-2'>
-    <SuccessMessage message="Expense Record Deleted sucessfully..." />
- </div>}
-
- <div className='d-flex gap-2 my-2  justify-content-start align-items-center  '>
-    <div>
-    <input type="radio" className="btn-check" id="btn-all" autoComplete="off" name="filters" defaultChecked onChange={handleChange} value="all" />
-    <label className="btn btn-outline-success" htmlFor="btn-all">All</label>
-     </div>
-     <div>
-    <input type="radio" className="btn-check" id="btn-food" autoComplete="off" name="filters" onChange={handleChange} value="food"/>
-    <label className="btn btn-outline-primary" htmlFor="btn-food">Food</label>
-     </div>
-     <div>
-    <input type="radio" className="btn-check" id="btn-travel" autoComplete="off" name="filters" value="travel" onChange={handleChange}/>
-    <label className="btn btn-outline-warning" htmlFor="btn-travel">Travel</label>
-     </div>
-     <div>
-    <input type="radio" className="btn-check" id="btn-utilities" autoComplete="off" name="filters" onChange={handleChange} value="utilities"/>
-    <label className="btn btn-outline-info" htmlFor="btn-utilities">Utilities</label>
-     </div>
-     <div>
-    <input type="radio" className="btn-check" id="btn-other" autoComplete="off" name="filters" onChange={handleChange} value="other"/>
-    <label className="btn btn-outline-danger" htmlFor="btn-other">Other</label>
-     </div>
-  
-    </div>
-  </section>
-  ):""
+   <div className='d-flex gap-2 my-2  justify-content-start align-items-center  '>
+      <div>
+      <input type="radio" className="btn-check" id="btn-all" autoComplete="off" name="filters" defaultChecked onChange={handleChange} value="all" />
+      <label className="btn btn-outline-success" htmlFor="btn-all">All</label>
+       </div>
+       <div>
+      <input type="radio" className="btn-check" id="btn-food" autoComplete="off" name="filters" onChange={handleChange} value="food"/>
+      <label className="btn btn-outline-primary" htmlFor="btn-food">Food</label>
+       </div>
+       <div>
+      <input type="radio" className="btn-check" id="btn-travel" autoComplete="off" name="filters" value="travel" onChange={handleChange}/>
+      <label className="btn btn-outline-warning" htmlFor="btn-travel">Travel</label>
+       </div>
+       <div>
+      <input type="radio" className="btn-check" id="btn-utilities" autoComplete="off" name="filters" onChange={handleChange} value="utilities"/>
+      <label className="btn btn-outline-info" htmlFor="btn-utilities">Utilities</label>
+       </div>
+       <div>
+      <input type="radio" className="btn-check" id="btn-other" autoComplete="off" name="filters" onChange={handleChange} value="other"/>
+      <label className="btn btn-outline-danger" htmlFor="btn-other">Other</label>
+       </div>
+    
+      </div>
+    </section>
+    ):""
+      }
+      
+      
+      
+      </section>)
+    
+    
+    
 }
 
 export default ExpenseTable

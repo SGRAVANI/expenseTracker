@@ -62,63 +62,50 @@ function NewExpense() {
         e.target.reset();
         //console.log(e)
     }
-  return !flag?(
-    <form onSubmit={handleSubmit} className='w-75'>
+  return(
+    <section className='sections'>
+    {/* <h2>Add New Expenses</h2> */}
+    <h4>Add New Expense Details</h4>
+   {!flag?(   <form onSubmit={handleSubmit} className='w-75'>
   
-    {/* <div className='d-flex flex-column align-items-center'> */}
-    <div className="row mb-3 ">
-    <label htmlFor="expName" className="col-sm-2 col-form-label gap-2 ">Expense Name</label>
-    <div className="col-sm-10">
-      <input type="text" name="expenseName" id="expName" required placeholder='enter expense item name' onChange={handleChange}  className={state.preferences.isDarkMode?"form-control bg-dark font-dark dark-input":"form-control "} />
-    </div>
-  </div>
+  {/* <div className='d-flex flex-column align-items-center'> */}
   <div className="row mb-3 ">
-    <label htmlFor="expCategory" className="col-sm-2 col-form-label gap-2 ">Expense Category</label>
-    <div className="col-sm-10 ">
-      <select name="expenseCategory" id="expCategory" required style={{width:"175px"}} onChange={handleChange} defaultValue={""}  className={state.preferences.isDarkMode?"form-select bg-dark font-dark dark-input w-100":"form-select w-100"}>
-      <option value="" disabled >Select Category</option>
-            <option value="food" >Food</option>
-            <option value="travel">Travel</option>
-            <option value="utilities">Utilities</option>
-            <option value="other">Other</option>
-        </select>
-    </div>
+  <label htmlFor="expName" className="col-sm-2 col-form-label gap-2 ">Expense Name</label>
+  <div className="col-sm-10">
+    <input type="text" name="expenseName" id="expName" required placeholder='enter expense item name' onChange={handleChange}  className={state.preferences.isDarkMode?"form-control bg-dark font-dark dark-input":"form-control "} />
   </div>
-
-  <div className="row mb-3 ">
-    <label htmlFor="expAmount" className="col-sm-2 col-form-label gap-2 ">Expense Amount</label>
-    <div className="col-sm-10">
-      <input type="number" name="expenseAmount" id="expAmount" required placeholder='enter expense amount' onChange={handleChange}  className={state.preferences.isDarkMode?"form-control bg-dark font-dark dark-input":"form-control "}/>
-    </div>
+</div>
+<div className="row mb-3 ">
+  <label htmlFor="expCategory" className="col-sm-2 col-form-label gap-2 ">Expense Category</label>
+  <div className="col-sm-10 ">
+    <select name="expenseCategory" id="expCategory" required style={{width:"175px"}} onChange={handleChange} defaultValue={""}  className={state.preferences.isDarkMode?"form-select bg-dark font-dark dark-input w-100":"form-select w-100"}>
+    <option value="" disabled >Select Category</option>
+          <option value="food" >Food</option>
+          <option value="travel">Travel</option>
+          <option value="utilities">Utilities</option>
+          <option value="other">Other</option>
+      </select>
   </div>
+</div>
 
-{/* 
-        <div className='input-container my-1'>
-        <label htmlFor="expName" >Expense Name</label>
-        <input type="text" name="expenseName" id="expName" required placeholder='enter expense name' onChange={handleChange}  />
-        </div>
-        <div className='input-container my-1'>
-        <label htmlFor="expCategory" >Expense Category</label>
-        <select name="expenseCategory" id="expCategory" required style={{width:"175px"}} onChange={handleChange} defaultValue={""}>
-        <option value="" disabled >Select Category</option>
-            <option value="food" >Food</option>
-            <option value="travel">Travel</option>
-            <option value="utilities">Utilities</option>
-            <option value="other">Other</option>
-        </select>
-        </div>
-        <div className='input-container my-1'>
-        <label htmlFor="expAmount" >Expense Amount</label>
-        <input type="number" name="expenseAmount" id="expAmount" required placeholder='enter expense amount' onChange={handleChange}/>
-        </div> */}
-        <button type='submit' className='btn btn-secondary'>Add Expense</button>
-            {/* </div> */}
-        {alert&&<AlertDismissible message='Enter valid expense amount. it must be greater than 0' f={alert} setError={setAlert} variant="danger" />}
-        {success && <SuccessMessage message="Data added successfully..." />}
-        
-    </form>
-    
-  ):<PromptBox category={data.expenseCategory} data={data}  setData={setData} setFlag={setFlag} id={id} setId={setId}/>
+<div className="row mb-3 ">
+  <label htmlFor="expAmount" className="col-sm-2 col-form-label gap-2 ">Expense Amount</label>
+  <div className="col-sm-10">
+    <input type="number" name="expenseAmount" id="expAmount" required placeholder='enter expense amount' onChange={handleChange}  className={state.preferences.isDarkMode?"form-control bg-dark font-dark dark-input":"form-control "}/>
+  </div>
+</div>
+
+      <button type='submit' className='btn btn-secondary'>Add Expense</button>
+          {/* </div> */}
+      {alert&&<AlertDismissible message='Enter valid expense amount. it must be greater than 0' f={alert} setError={setAlert} variant="danger" />}
+      {success && <SuccessMessage message="Data added successfully..." />}
+      
+  </form>):(<PromptBox category={data.expenseCategory} data={data}  setData={setData} setFlag={setFlag} id={id} setId={setId}/>)} 
+    </section>
+
+  )
+  
+  
 }
 
 export default NewExpense
