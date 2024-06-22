@@ -1,3 +1,11 @@
+/**
+ * @component - This component renders expense detail table  which contains information  like expense name,expense amount , expense category and delete record functionality. component will access data from state.expenseDetail global state
+ *
+ * @returns {ReactNode} A React element that renders Table contains expense information along with delete functionality.
+ */
+
+
+
 import React, { useEffect, useState } from 'react'
 import { RiDeleteBinFill } from "react-icons/ri";
 import { useDispatch, useSelector } from 'react-redux';
@@ -17,6 +25,15 @@ useEffect(()=>{
           },[600])
         }
 },[isDelete])
+
+/**
+ * This function will execute when there will be any change of value in input fileds and store it's updated value to  local state Filter to filter out table rows based on selecetd category of budget
+ *
+ * @param {Object} evt  -Event Object.
+ * @returns {Object} - updates value of local state variable filter
+ */
+
+
 function handleChange(e)
 {
    
@@ -25,6 +42,13 @@ function handleChange(e)
 
 //   <RiDeleteBinFill />
 }
+
+    /**
+ * This function generates rows of table basis on expense data available in global state library and value of  local state variable filter. In every row of table it adds delete functionality to delete record 
+ *
+ * @returns {ReactNode} Returns a list of <tr> which will be added in <tbody>.
+ */
+
 function getRows()
 {  let filteredRows=[]
     console.log(state.expenseDetail,filterCat)

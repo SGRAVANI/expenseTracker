@@ -1,3 +1,9 @@
+/**
+ * This component renders Landing page for expense tracker app.
+ *
+ * @returns {ReactNode} A React element that renders a form to collect budget data from user.
+ */
+
 import React, { useState,useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import "../style.css"
@@ -19,19 +25,38 @@ let [inputData,setInputData]=useState({
 
 let dispatch=useDispatch()
 let state=useSelector((state)=>state)
-//let preferenceSelector=useSelector((state)=>state.preferences)
+/**
+ * This function is used to calculate remaining budget for other field.
+ *
+ * @returns {Number} which is  food +traveling+utilities-budget amount
+ */
 function computeOther()
 {
     let total=inputData.budget-getTotal();
     console.log(total)
     return total
 }
+/**
+ * This function is rendering AlertDismissible component when entered total budget is less than input budget in categories of form (food,travel,utilities, etc) as an Error Message.
+ *
+ * @param {String} text  -message to display in Error Alert.
+ * @param {Boolean} f  -value will set true if total budget is less than sub categories's total budget.
+ * @param {String} variant - alert variant 
+ * @returns {ReactNode} AlertDismissible - renders component to display error message 
+ */
 function generateAlert(text,f,variant)
 {
    // console.log("inside fn")
   // console.log("generate alert called",f)
     return <AlertDismissible message={text} f={f} variant={variant} setError={setError}/>
 }
+
+/**
+ * This function calculates summation of input values of files like food, utilities and travel
+ * @returns {Number} returns summation of input filed's budget
+ */
+
+
 function getTotal()
 {
     let total=Number(inputData.food)+Number(inputData.travel)+Number(inputData.utilities);
@@ -51,10 +76,13 @@ useEffect(() => {
       utilities: state.budget.utilities || ""
     });
   }, [state.budget]);
-//   useEffect(()=>{
-//     document.body.style.background=(state.preferences.isDarkMode)?"radial-gradient(circle,rgb(110, 70, 118),rgb(57, 19, 138),rgb(205, 83, 235))": "linear-gradient(to bottom,rgb(233,208,238),rgb(236,216,241),white)"
-//     },[state.preferences.isDarkMode])
 
+  /**
+ * This function will execute on form sumission event and validate input fileds as well as if inputs are ok then store all fileds value in central state management library using dispatch (updates budgetSlice- state.budget) and user will redirect to transactions page
+ *
+ * @param {Object} evt  -Event Object i.e. Pointer Event Object.
+ * @returns {ReactNode} Transactions - user Will redirected to transactions page
+ */
 
   function handleSubmit(e)
 {
@@ -87,6 +115,14 @@ useEffect(() => {
    console.log("value of state is ",state)
     navigate("/transactions")
 }
+
+/**
+ * This function will execute when there will be any change of value in input fileds and store it's updated value to local state object inputData
+ *
+ * @param {Object} evt  -Event Object.
+ * @returns {Object} - updates value of state variable inputData
+ */
+
 function handleChange(e)
 {
 setInputData({...inputData,[e.target.name]:(()=>{
@@ -94,15 +130,35 @@ setInputData({...inputData,[e.target.name]:(()=>{
     return (isNaN(Number(e.target.value))||e.target.value=="")?e.target.value:Number(e.target.value)})()})
 //dispatch(updateBudget({[e.target.name]:e.target.value}))
 }
+
+
+/**
+ * This function will update state.budget object based on input values of form and redirect user to / path
+ *
+ */
+
+
 function handleUpdate()
   {
   navigate("/")
   }
+
+  /**
+ * This function add new budget entry in state.budget object
+ *
+ * @returns {Object} - update value of state.budget
+ */
+
   function handleNew()
   {
    dispatch(addBudget({
     name:"",budget:"",food:"",other:"",travel:"",utilities:""}))
   }
+  /**
+ * This function will navigate user back to "transaction" route/path
+ *
+ */
+
   function handleBack()
   {
     navigate("/transactions")

@@ -1,3 +1,11 @@
+/**
+ * This component is generating a form to collect expense details from user and store it to central state management library.
+ *
+ * @returns {ReactNode} A React element that renders a form to collect expense details from user.
+ */
+
+
+
 import React, { useEffect, useState } from 'react'
 import "../style.css"
 import PromptBox from './PromptBox'
@@ -19,6 +27,15 @@ function NewExpense() {
     },900)
    },[success])
 
+
+/**
+ * This function will execute when there will be any change of value in input fileds and store it's updated value to  local state object data
+ *
+ * @param {Object} evt  -Event Object.
+ * @returns {Object} - updates value of local state variable data
+ */
+
+
      function handleChange(e)
      {
         setData((prev)=>{
@@ -26,6 +43,14 @@ function NewExpense() {
         })
        
      }
+     
+  /**
+ * This function will execute on form sumission event and validate input fileds as well as if inputs are ok then store all fileds value in central state management library using dispatch (upadates state.expenseDetail ). value of newly added record will reflected in budget insight section and expense table section
+ *
+ * @param {Object} evt  -Event Object i.e. Pointer Event Object.
+ * @returns {Object} -updates global states 
+ */
+
      
     function handleSubmit(e)
     {

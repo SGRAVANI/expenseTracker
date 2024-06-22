@@ -1,8 +1,24 @@
+/**
+ * @component - This component renders budget insight table which contains information of allocated budget, used budget, balance etc.
+ *
+ * @returns {ReactNode} A React element that renders Table contains budget information.
+ */
+
+
+
 import React from 'react'
 import { useSelector } from 'react-redux'
 import Pill from './Pill'
 function BudgetInsight() {
     let state=useSelector((state)=>state)
+    
+    /**
+ * This function generates rows of table basis on budget data and expense data available in global state library.
+ *
+ * @returns {ReactNode} Returns a list of <tr> which will be added in <tbody>.
+ */
+
+    
     function getInsightRows()
   {
         

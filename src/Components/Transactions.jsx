@@ -1,3 +1,11 @@
+/**
+ * This component contins various sections like BudgetInsight, AddNewExpense and ExpenseTable.
+ *
+ * @returns {ReactNode} A React element that renders various sections based on budget entered by user and it's details.
+ */
+
+
+
 import React, { useEffect } from 'react'
 
 import LandingPage from './LandingPage'
@@ -15,14 +23,7 @@ function Transactions() {
   let state=useSelector((state)=>state)
   let dispatch=useDispatch()
   
-  // function handleNew()
-  // {
-
-  // }
-  // function handleBack()
-  // {
-  //   navigate("/transactions")
-  // }
+ 
   useEffect(()=>{
     document.body.backgroundColor=""
   document.body.style.backgroundColor=(state.preferences.isDarkMode)?"rgb(66,66,66)":"white"

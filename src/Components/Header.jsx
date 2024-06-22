@@ -1,3 +1,11 @@
+/**
+ * This component renders Header page display's userName and updateBudget functionality.
+ *
+ * @returns {ReactNode} A React element that renders Header section.
+ */
+
+
+
 import React from 'react'
 import "../style.css"
 import { useNavigate } from 'react-router-dom'
