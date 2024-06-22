@@ -26,5 +26,5 @@ const budgetSlice=createSlice({
     }
 })
 export default budgetSlice.reducer
-//export {addBudget,updateBudget} from action.reducer
+
 export const {addBudget,updateBudget}=budgetSlice.actions

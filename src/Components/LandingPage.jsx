@@ -34,7 +34,7 @@ function generateAlert(text,f,variant)
 }
 function getTotal()
 {
-    let total=inputData.food+inputData.travel+inputData.utilities;
+    let total=Number(inputData.food)+Number(inputData.travel)+Number(inputData.utilities);
     console.log("total is :",total)
     return total
 }
@@ -91,7 +91,7 @@ function handleChange(e)
 {
 setInputData({...inputData,[e.target.name]:(()=>{
     console.log(isNaN(e.target.value),e.target.value)
-    return isNaN(Number(e.target.value))?e.target.value:Number(e.target.value)})()})
+    return (isNaN(Number(e.target.value))||e.target.value=="")?e.target.value:Number(e.target.value)})()})
 //dispatch(updateBudget({[e.target.name]:e.target.value}))
 }
 function handleUpdate()
@@ -206,6 +206,7 @@ className={state.preferences.isDarkMode?"form-control font-dark bg-dark dark-inp
         
        
      </div>
+     
      </div>
     
   )
