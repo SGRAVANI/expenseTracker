@@ -12,6 +12,7 @@ import { addBudget,updateBudget } from '../store/slices/budgetSlice'
 import { toggleDarkMode } from '../store/slices/preferenceSlice'
 import AlertDismissible from './AlertDismissible'
 import expenseImg from "../assets/page1-expense-img.jpg"
+import { clearAllDetails } from '../store/slices/expenseDetailsSlice'
 //import AlertCompo from './AlertCompo.jsx'
 import { FaSun } from "react-icons/fa6";
 import { FaMoon } from "react-icons/fa";
@@ -153,6 +154,7 @@ function handleUpdate()
   {
    dispatch(addBudget({
     name:"",budget:"",food:"",other:"",travel:"",utilities:""}))
+    dispatch(clearAllDetails([]))
   }
   /**
  * This function will navigate user back to "transaction" route/path

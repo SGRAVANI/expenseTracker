@@ -3,6 +3,12 @@ const expenseDetailSlice=createSlice({
     name:"expenseDetailSlice",
     initialState:[],
     reducers:{
+        clearAllDetails:(state,action)=>{
+         state=action.payload;
+         console.log(state)
+         return state;
+
+        },
         addDetail:(state,action)=>{
             state.push(action.payload)
             return state;
@@ -20,5 +26,5 @@ const expenseDetailSlice=createSlice({
     }
 
 })
-export const {addDetail,deleteDetail} =expenseDetailSlice.actions
+export const {addDetail,deleteDetail,clearAllDetails} =expenseDetailSlice.actions
 export default expenseDetailSlice.reducer
